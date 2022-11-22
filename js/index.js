@@ -48,7 +48,7 @@ console.log(totalAge);
 let numbers3 = [2, 3, 1, 5, 4, 10, 8, 7, 9, 6];
 
 biggestNumber = numbers3.reduce((perviousNumber, currentNumber) => { 
-    perviousNumber < currentNumber ? console.log(currentNumber) : console.log(perviousNumber)
+    return perviousNumber < currentNumber ? currentNumber : perviousNumber
 }, 0);
 
 console.log(biggestNumber)
@@ -124,6 +124,22 @@ let countries = [
     {
         name : 'Australia',
         continent : 'Australia'
-        
+
     },
 ]
+
+const countryName = countries.map(country => country.name)
+const continentName = countries.map(country => country.continent)
+const europeanCountry = countries.filter((country) => country.continent === 'Europe' ? country : false)
+
+
+function searchCountry(searchValue) {
+    const result = countries.filter((country) => 
+        country.name === searchValue || country.continent === searchValue ? country : console.log('Country not found!'))
+    return result
+}
+console.log(searchCountry('Asia'))
+
+
+
+
