@@ -77,6 +77,16 @@ let people2 = [
     { age: 55, name: 'Max'},
 ]
 
+checkIf = people2.every((people) => {
+    if(people.age < 40) {
+        return true
+    } else {
+        return false
+    }
+})
+
+console.log(checkIf);
+
 checkIfUnder40 = people2.map((people) => {
     if(people.age < 40) {
         people.under40 = true
@@ -130,12 +140,12 @@ let countries = [
 
 const countryName = countries.map(country => country.name)
 const continentName = countries.map(country => country.continent)
-const europeanCountry = countries.filter((country) => country.continent === 'Europe' ? country : false)
-
+const europeanCountry = countries.filter((country) => country.continent === 'Europe' ? true : false)
+console.log(europeanCountry)
 
 function searchCountry(searchValue) {
     const result = countries.filter((country) => 
-        country.name === searchValue || country.continent === searchValue ? country : console.log('Country not found!'))
+        country.name === searchValue || country.continent === searchValue ? true : false)
     return result
 }
 console.log(searchCountry('Asia'))
